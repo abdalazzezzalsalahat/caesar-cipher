@@ -45,13 +45,59 @@ def decrypt(enc_txt, key):
 
     return encrypt(enc_txt, -key)
 
-def count_(sentences):
-    w = sentences.split()
-    c = 0
-    for i in w:
+def counter(sentences):
+    """
+    A function to count english words.
+    """
+    word = sentences.split()
+    count = 0
+    for i in word:
         if i in words or i.upper() in words or i.lower() in words:
-            c += 1
-    return c
+            count += 1
+    return count
+
+def break_it(enc_txt):
+    """Function to transform cipher into its original state without access to the key."""
+
+    letters_count = Counter(enc_txt)
+
+    del letters_count[',']
+    del letters_count[' ']
+    del letters_count['.']
+    del letters_count[':']
+
+    en_fingerprint = ['e', 't', 'a', 'o', 'i', 'n', 's', 'r', 'h', 'l', 'd', 'c', 'u', 'm', 'f', 'p','g','w', 'y','b','v','k','x','j','q','z']
+
+    possible_e = letters_count.most_common(1)[0][0]
+
+    ''' check each letter from en_fingerprint until our text doesn't look like english text'''
+    for letter in en_fingerprint:
+        key = ord(possible_e) - ord(letter)
+        decrypted_text = decrypt(enc_txt, key)
+   
+        if is_english(decrypted_text):
+            return decrypted_text
+  
+    return "Not English"
+
+def is_english(text):
+  """Helper function to find out if the given text 
+   is english text or not"""
+  words = text.split()
+  
+  word_count = 0
+
+  for word in words:
+      
+    if word in words_list:
+      word_count += 1
+
+  if (word_count/len(words)) > 0.5:
+    return True
+
+  else: 
+    return False
+
 
 
 
@@ -60,6 +106,8 @@ if __name__ == "__main__":
     assert encrypt('gym', 5) == 'ldr'
     assert encrypt('my name is azooz',27) == 'nz obnf jt bappa'
     assert decrypt('ectg',2) == 'care'
-
+    print(is_english('lskdfnnja'))
+    print('\n\n\n\n')
+    # print(counter('kjzsbhdduohy'))
     print('All tests passed!!!!')
 
