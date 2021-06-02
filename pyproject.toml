@@ -9,6 +9,8 @@ python = "^3.9"
 nltk = "^3.6.2"
 pytest = "^6.2.4"
 flake8 = "^3.9.2"
+Corpus = "^0.4.2"
+english-words = "^1.0.3"
 
 [tool.poetry.dev-dependencies]
 

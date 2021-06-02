@@ -40,6 +40,22 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
+name = "corpus"
+version = "0.4.2"
+description = "A simple English dictionary for Python"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "english-words"
+version = "1.0.3"
+description = "Contains sets of English words"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "flake8"
 version = "3.9.2"
 description = "the modular source code checker: pep8 pyflakes and co"
@@ -205,7 +221,7 @@ telegram = ["requests"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "94d359c0367328a1547f5a2d71430e454dbdd0c2193c31636444fd68b0c30492"
+content-hash = "b4b2fbdebd88c719f257af2c3cf6041852a3036708100716a8f9f53e3ae71fe0"
 
 [metadata.files]
 atomicwrites = [
@@ -223,6 +239,12 @@ click = [
 colorama = [
     {file = "colorama-0.4.4-py2.py3-none-any.whl", hash = "sha256:9f47eda37229f68eee03b24b9748937c7dc3868f906e8ba69fbcbdd3bc5dc3e2"},
     {file = "colorama-0.4.4.tar.gz", hash = "sha256:5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"},
+]
+corpus = [
+    {file = "Corpus-0.4.2.tar.gz", hash = "sha256:ffa894899350675f874bab9e93ef07326aeb5fc1e9ef62d25729d4b2903c63cc"},
+]
+english-words = [
+    {file = "english-words-1.0.3.tar.gz", hash = "sha256:e936ba237455e16a89b877660c0e160852e54de682ad553d79083dbb7b10b345"},
 ]
 flake8 = [
     {file = "flake8-3.9.2-py2.py3-none-any.whl", hash = "sha256:bf8fd333346d844f616e8d47905ef3a3384edae6b4e9beb0c5101e25e3110907"},
